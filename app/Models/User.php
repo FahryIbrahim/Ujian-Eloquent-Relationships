@@ -42,19 +42,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function tasks(): HasMany
+    public function tasks()
     {
         // TASK: fix this by adding a parameter
         return $this->hasMany(Task::class, 'users_id');
     }
 
-    public function comments(): HasManyThrough
+    public function comments()
     {
         // TASK: add the code here for two-level relationship
         return $this->hasManyThrough(Comment::class, Task::class, 'users_id', 'task_id');
     }
 
-    public function projects(): BelongsToMany
+    public function projects()
     {
         return $this->belongsToMany(Project::class)->withPivot('start_date');
     }
