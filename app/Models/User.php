@@ -42,8 +42,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function tasks(): hasMany
-    {
+    public function tasks()
         // TASK: fix this by adding a parameter
         return $this->hasMany(Task::class, 'users_id');
     }
